@@ -1,12 +1,21 @@
-function fuggvenyem(szam) {
-  let x = 0;
-  while (szam != 0) {
-    let y = szam % 10; 
-    x = x * 10 + y;  
-    szam=Number.parseInt(szam / 10)
-  
+import {tesztFuggveny} from "./teszt.js";
+export function fuggvenyem(a, b) {
+  if (a===0||b===0) {
+      return "egyik szám se lehet 0"
   }
-  return x
+  if (a<0||b<0) {
+    return "mindkét számnak pozitívnak kell lennie"
+}
+  
+  while (a != b) {
+    if (a > b) {
+      a = a - b;
+    } else {
+      b = b - a;
+    }
+  }
+  console.log(a)
+  return a;
 }
 
-console.log(fuggvenyem(1234))
+tesztFuggveny();
